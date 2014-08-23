@@ -1,4 +1,3 @@
-my.zsh
-======
+#My ZSH
 
 My zsh configurations
