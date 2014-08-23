@@ -1,0 +1,3 @@
+
+install:
+	cp zshrc ~/.zshrc
