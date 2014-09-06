@@ -1,3 +1,6 @@
+install-zshrc:
+	cp zshrc $(HOME)/.zshrc
 
-install:
-	cp zshrc ~/.zshrc
+install: install-zshrc
+	rm -rf $(HOME)/.zsh
+	cp -pr zsh $(HOME)/.zsh
