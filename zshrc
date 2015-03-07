@@ -15,3 +15,6 @@ source $ZSH/completion.zsh
 
 # Load User Prefs
 source $ZSH/user.zsh
+
+# Load golang Prefs
+source $ZSH/golang.zsh

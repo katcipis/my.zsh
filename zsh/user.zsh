@@ -1,6 +1,4 @@
 # User configuration
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
-
 # Set TERM with 256 colors
 export TERM=xterm-256color
 
