@@ -1,17 +1,3 @@
-# Push and pop directories on directory stack
-alias pu='pushd'
-alias po='popd'
-
-# Basic directory operations
-alias ...='cd ../..'
-alias -- -='cd -'
-
-# Super user
-alias _='sudo'
-alias please='sudo'
-
-#alias g='grep -in'
-
 # Show history
 if [ "$HIST_STAMPS" = "mm/dd/yyyy" ]
 then
@@ -25,11 +11,13 @@ then
 else
     alias history='fc -l 1'
 fi
-# List direcory contents
-alias lsa='ls -lah'
-alias l='ls -lah'
-alias ll='ls -lh'
-alias la='ls -lAh'
-alias sl=ls # often screw this up
 
-alias afind='ack-grep -il'
+#Docker magic
+## Kill all running containers.
+alias dockerkillall='docker kill $(docker ps -q)'
+## Delete all stopped containers.
+alias dockercleanc='printf "\n>>> Deleting stopped containers\n\n" && docker rm $(docker ps -a -q)'
+## Delete all untagged images.
+alias dockercleani='printf "\n>>> Deleting untagged images\n\n" && docker rmi $(docker images -q -f dangling=true)'
+## Delete all stopped containers and untagged images.
+alias dockerclean='dockercleanc || true && dockercleani'
