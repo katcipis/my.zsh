@@ -18,6 +18,6 @@ alias dockerkillall='docker kill $(docker ps -q)'
 ## Delete all stopped containers.
 alias dockercleanc='printf "\n>>> Deleting stopped containers\n\n" && docker rm $(docker ps -a -q)'
 ## Delete all images.
-alias dockercleani='printf "\n>>> Deleting untagged images\n\n" && docker rmi $(docker images -q)'
+alias dockercleani='printf "\n>>> Deleting untagged images\n\n" && docker rmi -f $(docker images -q)'
 ## Delete all stopped containers and untagged images.
 alias dockerclean='dockercleanc || true && dockercleani'
