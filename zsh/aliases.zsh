@@ -21,3 +21,6 @@ alias dockercleanc='printf "\n>>> Deleting stopped containers\n\n" && docker rm 
 alias dockercleani='printf "\n>>> Deleting untagged images\n\n" && docker rmi -f $(docker images -q)'
 ## Delete all stopped containers and untagged images.
 alias dockerclean='dockercleanc || true && dockercleani'
+
+#VPN
+alias vpn='sudo service openvpn start'
