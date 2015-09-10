@@ -34,5 +34,6 @@ export PAGER="less"
 export LESS="-R"
 
 export LC_CTYPE=$LANG
+export EDITOR=vim
 
 alias serve="python -m SimpleHTTPServer"
