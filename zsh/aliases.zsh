@@ -22,5 +22,9 @@ alias dockercleani='printf "\n>>> Deleting untagged images\n\n" && docker rmi -f
 ## Delete all stopped containers and untagged images.
 alias dockerclean='dockercleanc || true && dockercleani'
 
+#XClip magic
+alias tox='xclip -selection clipboard'
+alias fromx='xclip -selection clipboard -o'
+
 #VPN
 alias vpn='sudo service openvpn start'
