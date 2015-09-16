@@ -26,5 +26,8 @@ alias dockerclean='dockercleanc || true && dockercleani'
 alias tox='xclip -selection clipboard'
 alias fromx='xclip -selection clipboard -o'
 
+#Update arch
+alias archupdate='sudo pacman -Syu'
+
 #VPN
 alias vpn='sudo service openvpn start'
