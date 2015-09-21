@@ -27,7 +27,7 @@ alias tox='xclip -selection clipboard'
 alias fromx='xclip -selection clipboard -o'
 
 #Update arch
-alias archupdate='sudo pacman -Syu'
+alias sysupdate='sudo pacman -Syu'
 
 #VPN
 alias vpn='sudo service openvpn start'
