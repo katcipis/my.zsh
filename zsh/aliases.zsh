@@ -13,6 +13,8 @@ else
 fi
 
 #Docker magic
+##nitro stats
+alias dockerstats='docker ps  | awk "{ print $NF}" | grep -v NAMES | xargs docker stats'
 ## Kill all running containers.
 alias dockerkillall='docker kill $(docker ps -q)'
 ## Delete all stopped containers.
