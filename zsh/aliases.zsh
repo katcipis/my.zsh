@@ -31,5 +31,8 @@ alias fromx='xclip -selection clipboard -o'
 #Update arch
 alias sysupdate='sudo pacman -Syu'
 
+#git
+alias git-clean='git remote prune origin'
+
 #VPN
 alias vpn='sudo service openvpn start'
