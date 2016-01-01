@@ -2,7 +2,7 @@
 export ZSH=$HOME/.zsh
 
 # Load Theme
-source $ZSH/themes/lborguetti.zsh
+source $ZSH/themes/katcipis.zsh
 
 # Load Aliases
 source $ZSH/aliases.zsh
@@ -18,3 +18,6 @@ source $ZSH/user.zsh
 
 # Load golang Prefs
 source $ZSH/golang.zsh
+
+# Config Keyboard
+source $ZSH/keyboard.zsh
