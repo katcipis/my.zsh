@@ -35,4 +35,5 @@ alias sysupdate='sudo pacman -Syu'
 alias git-clean='git remote prune origin'
 
 #VPN
-alias vpn='sudo service openvpn start'
+alias vpnstart='sudo systemctl start openvpn@client.service'
+alias vpnstop='sudo systemctl stop openvpn@client.service'
