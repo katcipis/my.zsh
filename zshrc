@@ -18,6 +18,3 @@ source $ZSH/user.zsh
 
 # Load golang Prefs
 source $ZSH/golang.zsh
-
-# Config Keyboard
-source $ZSH/keyboard.zsh
