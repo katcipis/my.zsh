@@ -32,5 +32,8 @@ alias fromx='xclip -selection clipboard -o'
 alias git-clean='git remote prune origin'
 
 #VPN
-alias vpnstart='sudo systemctl start openvpn@client.service'
-alias vpnstop='sudo systemctl stop openvpn@client.service'
+#alias vpnstart='sudo systemctl start openvpn@client.service'
+#alias vpnstop='sudo systemctl stop openvpn@client.service'
+
+alias vpnstart='sudo service openvpn start'
+alias vpnstop='sudo service openvpn start'
