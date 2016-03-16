@@ -1,4 +1,4 @@
 # User configuration
+export GOROOT=$HOME/go
 export GOPATH=$HOME/workspace/go
-export GOROOT=$GOPATH
 export PATH=$PATH:$GOPATH/bin
