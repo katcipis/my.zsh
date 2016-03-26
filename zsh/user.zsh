@@ -1,5 +1,5 @@
 # User configuration
-# Set TERM with 256 colors
+# Set truecolor gnome terminal
 export TERM=xterm-256color
 
 # Load color names
