@@ -34,3 +34,6 @@ alias git-clean='git remote prune origin'
 #VPN
 alias vpnstart='sudo systemctl start openvpn@client.service'
 alias vpnstop='sudo systemctl stop openvpn@client.service'
+
+#Update arch
+alias archupdate='sudo pacman -Syu'
