@@ -24,16 +24,11 @@ setopt prompt_subst
 export LSCOLORS="Gxfxcxdxbxegedabagacad"
 alias ls='ls --color=tty' || alias ls='ls -G'
 
-# Color grep results
-GREP_OPTIONS="--color=auto"
-export GREP_OPTIONS="$GREP_OPTIONS"
-export GREP_COLOR='1;32'
-
 ## pager
 export PAGER="less"
 export LESS="-R"
 
 export LC_CTYPE=$LANG
-export EDITOR=vim
+export EDITOR=nvim
 
 alias serve="python -m SimpleHTTPServer"
