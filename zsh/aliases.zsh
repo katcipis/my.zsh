@@ -40,3 +40,6 @@ alias archupdate='sudo pacman -Syu'
 
 #Instant http server
 alias httpserve="python -m SimpleHTTPServer"
+
+#Generate password
+alias genpassword="openssl rand -base64 32"
