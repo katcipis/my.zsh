@@ -39,7 +39,7 @@ alias vpnstop='sudo systemctl stop openvpn@client.service'
 alias archupdate='sudo pacman -Syu'
 
 #Instant http server
-alias httpserve="python -m SimpleHTTPServer"
+alias httpserver="python -m http.server"
 
 #Generate password
 alias genpassword="openssl rand -base64 32"
