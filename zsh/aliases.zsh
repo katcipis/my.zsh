@@ -43,3 +43,6 @@ alias httpserver="python -m http.server"
 
 #Generate password
 alias genpassword="openssl rand -base64 32"
+
+#Poweroff
+alias poff="sudo systemctl poweroff"
