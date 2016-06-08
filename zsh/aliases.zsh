@@ -23,6 +23,8 @@ alias dockercleanc='printf "\n>>> Deleting stopped containers\n\n" && docker rm 
 alias dockercleani='printf "\n>>> Deleting untagged images\n\n" && docker rmi -f $(docker images -q)'
 ## Delete all stopped containers and untagged images.
 alias dockerclean='dockercleanc || true && dockercleani'
+## Delete orphaned volumes
+alias dockercleanv='printf "\n>>> Deleting orphaned volumes.\n\n" && docker volume rm $(docker volume ls -qf dangling=true)'
 
 #XClip magic
 alias tox='xclip -selection clipboard'
