@@ -39,6 +39,4 @@ zstyle ':completion:*:*:*:users' ignored-patterns \
 # ... unless we really want to.
 zstyle '*' single-ignored show
 
-# should this be in keybindings?
-#bindkey -M menuselect '^o' accept-and-infer-next-history
-
+autoload -Uz compinit && compinit
