@@ -46,3 +46,6 @@ alias genpassword="openssl rand -base64 32"
 
 #Poweroff
 alias poff="sudo systemctl poweroff"
+
+#Stats
+alias io="iostat -xmdz 1"
