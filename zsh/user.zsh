@@ -1,6 +1,6 @@
 # User configuration
-# Set truecolor gnome terminal
-export TERM=xterm-256color
+# Set truecolor kitty terminal
+export TERM=xterm-kitty
 
 # Load color names
 autoload colors; colors;
@@ -30,5 +30,3 @@ export LESS="-R"
 
 export LC_CTYPE=$LANG
 export EDITOR=nvim
-
-alias serve="python -m SimpleHTTPServer"

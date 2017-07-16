@@ -12,40 +12,25 @@ else
     alias history='fc -l 1'
 fi
 
-#Docker magic
-## Kill all running containers.
-alias dockerkillall='docker kill $(docker ps -q)'
-## Delete all stopped containers.
-alias dockercleanc='printf "\n>>> Deleting stopped containers\n\n" && docker rm $(docker ps -a -q)'
-## Delete all images.
-alias dockercleani='printf "\n>>> Deleting untagged images\n\n" && docker rmi -f $(docker images -q)'
-## Delete all stopped containers and untagged images.
-alias dockerclean='dockercleanc || true && dockercleani'
-## Delete orphaned volumes
-alias dockercleanv='printf "\n>>> Deleting orphaned volumes.\n\n" && docker volume rm $(docker volume ls -qf dangling=true)'
-
 #XClip magic
 alias tox='xclip -selection clipboard'
 alias fromx='xclip -selection clipboard -o'
 
 #git
-alias git-clean='git remote prune origin'
+alias gclean='git remote prune origin'
 
 #VPN
-alias vpnstart='sudo systemctl start openvpn@client.service'
-alias vpnstop='sudo systemctl stop openvpn@client.service'
+alias vpnstart='sudo systemctl start openvpn-client@client.service'
+alias vpnstop='sudo systemctl stop openvpn-client@client.service'
 
 #Update arch
-alias archupdate='sudo pacman -Syu'
-
-#Instant http server
-alias httpserver="python -m http.server"
+alias archupdate='sudo pacman -Sy archlinux-keyring && sudo pacman -Syyu'
 
 #Generate password
 alias genpassword="openssl rand -base64 32"
 
-#Poweroff
-alias poff="sudo systemctl poweroff"
-
 #Stats
 alias io="iostat -xmdz 1"
+
+# Neoway Network
+alias netstart="sudo systemctl start dhcpcd@enp1s0"
