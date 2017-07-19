@@ -36,5 +36,5 @@ alias io="iostat -xmdz 1"
 alias netstart="sudo systemctl start dhcpcd@enp1s0"
 
 # Go
-alias gohub cd $HOME/workspace/go/src/github.com/NeowayLabs
-alias golab cd $HOME/workspace/go/src/gitlab.neoway.com.br
+alias gohub="cd $HOME/workspace/go/src/github.com/NeowayLabs"
+alias golab="cd $HOME/workspace/go/src/gitlab.neoway.com.br"
