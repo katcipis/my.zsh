@@ -18,3 +18,4 @@ source $ZSH/user.zsh
 
 # Load golang Prefs
 source $ZSH/golang.zsh
+source $ZSH/nash.zsh
