@@ -1,7 +1,4 @@
 # User configuration
-# Set truecolor kitty terminal
-export TERM=xterm-kitty
-
 # Load color names
 autoload colors; colors;
 
