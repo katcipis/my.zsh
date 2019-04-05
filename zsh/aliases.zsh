@@ -25,3 +25,5 @@ alias genpassword="openssl rand -base64 32"
 alias io="iostat -xmdz 1"
 
 alias vi="nvim"
+
+alias sx='ssh-agent startx'
