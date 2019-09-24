@@ -1,17 +1,9 @@
-# Path to your oh-my-zsh installation.
 export ZSH=$HOME/.zsh
+export LOCALDIR=$HOME/.local
 
-# Load Theme
 source $ZSH/themes/katcipis.zsh
-
-# Load Aliases
 source $ZSH/aliases.zsh
-
-# Load History Prefs
 source $ZSH/history.zsh
-
-# Load Complete Prefs
 source $ZSH/completion.zsh
-
-# Load User Prefs
 source $ZSH/user.zsh
+source $ZSH/gcloud.zsh
