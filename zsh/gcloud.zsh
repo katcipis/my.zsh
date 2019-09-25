@@ -1,11 +1,11 @@
-gcloudsdk=$LOCALDIR/google-cloud-sdk
+gcloudsdk=$LOCALDIR/gcloud
 gcompletion=$gcloudsdk/completion.zsh.inc
 gpath=$gcloudsdk/path.zsh.inc
 
-if [ $gcompletion ]; then
+if [ -f $gcompletion ]; then
     source $gcompletion
 fi
 
-if [ $gpath ]; then
+if [ -f $gpath ]; then
     source $gpath
 fi

@@ -24,4 +24,4 @@ export LESS="-R"
 export LC_CTYPE=$LANG
 export LC_ALL=en_US.UTF-8
 export EDITOR=nvim
-export PATH=$PATH:$HOME/go/bin
+export PATH=$PATH:$LOCALDIR/go/bin
