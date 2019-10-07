@@ -7,3 +7,4 @@ source $ZSH/history.zsh
 source $ZSH/completion.zsh
 source $ZSH/gcloud.zsh
 source $ZSH/user.zsh
+source $ZSH/private.zsh
