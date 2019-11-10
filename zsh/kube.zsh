@@ -27,3 +27,19 @@ function krev() {
     printf "listing deployment[%s] revisions\n" ${deploy}
     kubectl rollout history deployment/${deploy}
 }
+
+function kevents_json_all() {
+    kubectl get events --sort-by='.lastTimestamp' --output=json
+}
+
+function kevents() {
+    local evtype="${1}"
+
+    if [[ -z "${evtype}" ]] then
+        kevents_json_all
+        return
+    fi
+
+    local filter=$(printf '.items[] | select(.type=="%s")' "${evtype}")
+    kevents_json_all | jq "${filter}"
+}
