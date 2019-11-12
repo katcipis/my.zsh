@@ -3,17 +3,38 @@ function kundo() {
     local rev="${2}"
 
     if [[ -z "${deploy}" ]] then
+        echo "deployment name not informed"
         printf "usage: %s <deployment name> <rev>\n" ${0}
         return
     fi
 
     if [[ -z "${rev}" ]] then
+        echo "revision not informed"
         printf "usage: %s <deployment name> <rev>\n" ${0}
         return
     fi
 
     printf "undoing deployment[%s] to revision[%s]\n" ${deploy} ${rev}
     kubectl rollout undo deployment/${deploy} --to-revision=${rev}
+}
+
+function kupdate() {
+    local name="${0}"
+    local imgversion="${1}"
+
+    if [[ -z "${name}" ]] then
+        echo "deployment name not informed"
+        printf "usage: %s <deployment name> <image version>\n" ${0}
+        return
+    fi
+
+    if [[ -z "${imgversion}" ]] then
+        echo "image version not informed"
+        printf "usage: %s <deployment name> <image version>\n" ${0}
+        return
+    fi
+
+    kubectl set image "deployment/${name}" "${name}=${imgversion}" --record
 }
 
 function krev() {
