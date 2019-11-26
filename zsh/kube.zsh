@@ -19,8 +19,8 @@ function kundo() {
 }
 
 function kupdate() {
-    local name="${0}"
-    local imgversion="${1}"
+    local name="${1}"
+    local imgversion="${2}"
 
     if [[ -z "${name}" ]] then
         echo "deployment name not informed"
