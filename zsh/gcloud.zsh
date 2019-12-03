@@ -12,6 +12,7 @@ fi
 
 function glogs() {
     local project="${1}"
+    local severity="${2}"
 
     if [[ -z "${project}" ]] then
         echo "project id not informed"
@@ -19,5 +20,9 @@ function glogs() {
         return
     fi
 
-    gcloud logging read --order=asc --format=json --project "${project}"
+    if [[ -z "${severity}" ]] then
+        severity="INFO"
+    fi
+
+    gcloud logging read --format=json --project "${project}" "severity>=${severity}"
 }
