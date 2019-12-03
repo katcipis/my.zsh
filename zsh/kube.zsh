@@ -64,3 +64,19 @@ function kevents() {
     local filter=$(printf '.items[] | select(.type=="%s")' "${evtype}")
     kevents_json_all | jq "${filter}"
 }
+
+function klogs() {
+    local deploy="${1}"
+    local container="${2}"
+
+    if [[ -z "${deploy}" ]] then
+        printf "usage: %s <deploy name> <container name>(optional,default=deploy name)\n" ${0}
+        return
+    fi
+
+    if [[ -z "${container}" ]] then
+        container="${deploy}"
+    fi
+
+    kubectl logs -f "deployment/${deploy}" -c "${container}"
+}
