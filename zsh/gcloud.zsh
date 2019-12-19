@@ -1,4 +1,4 @@
-gcloudsdk=/opt/google-cloud-sdk
+gcloudsdk=$LOCALDIR/google-cloud-sdk
 gcompletion=$gcloudsdk/completion.zsh.inc
 gpath=$gcloudsdk/path.zsh.inc
 
