@@ -80,3 +80,9 @@ function klogs() {
 
     kubectl logs -f "deployment/${deploy}" -c "${container}"
 }
+
+function kautocomplete() {
+    if [ $commands[kubectl] ]; then source <(kubectl completion zsh); fi
+}
+
+kautocomplete
