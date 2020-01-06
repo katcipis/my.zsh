@@ -27,3 +27,7 @@ alias io="iostat -xmdz 1"
 alias vi="vim"
 
 alias sx='ssh-agent startx'
+
+alias movies='cd /mnt/media/movies/todo && nautilus . && cd -'
+
+alias series='cd /mnt/media/series && nautilus . && cd -'
