@@ -70,7 +70,7 @@ function klogs() {
     local container="${2}"
 
     if [[ -z "${deploy}" ]] then
-        printf "usage: %s <deploy name> <container name>(optional,default=deploy name)\n" ${0}
+        printf "usage: %s <deploy name> <container name>(optional,default=<deploy name>)\n" ${0}
         return
     fi
 
@@ -83,6 +83,24 @@ function klogs() {
 
 function kautocomplete() {
     if [ $commands[kubectl] ]; then source <(kubectl completion zsh); fi
+}
+
+function kimgver() {
+    local deploy="${1}"
+    local container="${2}"
+
+    if [[ -z "${deploy}" ]] then
+        printf "usage: %s <deploy name> <container name>(optional,default=<deploy name>)\n" ${0}
+        return
+    fi
+
+    if [[ -z "${container}" ]] then
+        container="${deploy}"
+    fi
+
+    local filter=$(printf '.spec.template.spec.containers[] | if .name == "%s" then .image else empty end' "${container}")
+
+    kubectl -o json get "deployment/${deploy}" | jq -r "${filter}"
 }
 
 kautocomplete
