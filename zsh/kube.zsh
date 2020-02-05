@@ -41,12 +41,20 @@ function krev() {
     local deploy="${1}"
 
     if [[ -z "${deploy}" ]] then
-        printf "usage: %s <deployment name>\n" ${0}
+        printf "usage: %s <deployment name> <revision (optional)\n" ${0}
         return
     fi
 
-    printf "listing deployment[%s] revisions\n" ${deploy}
-    kubectl rollout history deployment/${deploy}
+    local rev="${2}"
+
+    if [[ -z "${rev}" ]] then
+        printf "listing deployment[%s] revisions\n" ${deploy}
+        kubectl rollout history deployment/${deploy}
+        return
+    fi
+
+    printf "detailing deployment[%s] revision[%s]\n" ${deploy} ${rev}
+    kubectl rollout history deployment/${deploy} --revision=${rev}
 }
 
 function kevents_json_all() {
