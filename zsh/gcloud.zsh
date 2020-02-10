@@ -14,10 +14,11 @@ function glogs() {
     local project="${1}"
     local severity="${2}"
     local container="${3}"
+    local pod="${4}"
 
     if [[ -z "${project}" ]] then
         echo "project id not informed"
-        printf "usage: %s <project id>\n" ${0}
+        printf "usage: %s <project id> <severity>(optional) <container>(optional) <pod>(optional)\n" ${0}
         return
     fi
 
@@ -29,6 +30,10 @@ function glogs() {
 
     if [[ ! -z "${container}" ]] then
         filter="${filter} AND resource.labels.container_name=${container}"
+    fi
+
+    if [[ ! -z "${pod}" ]] then
+        filter="${filter} AND resource.labels.pod_name=${pod}"
     fi
 
     gcloud logging read --format=json --project "${project}" "${filter}"
