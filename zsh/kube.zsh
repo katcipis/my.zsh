@@ -66,19 +66,25 @@ function kevents() {
 }
 
 function klogs() {
-    local deploy="${1}"
-    local container="${2}"
+    local label="${1}"
+    local name="${2}"
+    local container="${3}"
 
-    if [[ -z "${deploy}" ]] then
-        printf "usage: %s <deploy name> <container name>(optional,default=<deploy name>)\n" ${0}
+    if [[ -z "${label}" ]] then
+        printf "usage: %s <label> <label value> <container name>(optional,default=<label value>)\n" ${0}
+        return
+    fi
+
+    if [[ -z "${name}" ]] then
+        printf "usage: %s <label> <label value> <container name>(optional,default=<label value>)\n" ${0}
         return
     fi
 
     if [[ -z "${container}" ]] then
-        container="${deploy}"
+        container="${name}"
     fi
 
-    kubectl logs -f "deployment/${deploy}" -c "${container}"
+    kubectl logs -f -l${label}=${name} -c ${container}
 }
 
 function kautocomplete() {
