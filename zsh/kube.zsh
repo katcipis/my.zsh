@@ -74,25 +74,25 @@ function kevents() {
 }
 
 function klogs() {
-    local label="${1}"
-    local name="${2}"
+    local select_label="${1}"
+    local label_val="${2}"
     local container="${3}"
 
-    if [[ -z "${label}" ]] then
-        printf "usage: %s <label> <label value> <container name>(optional,default=<label value>)\n" ${0}
+    if [[ -z "${select_label}" ]] then
+        printf "usage: %s <selector label> <label value> <container name>(optional,default=<label value>)\n" ${0}
         return
     fi
 
-    if [[ -z "${name}" ]] then
-        printf "usage: %s <label> <label value> <container name>(optional,default=<label value>)\n" ${0}
+    if [[ -z "${label_val}" ]] then
+        printf "usage: %s <selector label> <label value> <container name>(optional,default=<label value>)\n" ${0}
         return
     fi
 
     if [[ -z "${container}" ]] then
-        container="${name}"
+        container="${label_val}"
     fi
 
-    kubectl logs -f -l${label}=${name} -c ${container}
+    kubectl logs -f --selector "${select_label}=${label_val}" --container "${container}"
 }
 
 function kautocomplete() {
