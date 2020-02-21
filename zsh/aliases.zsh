@@ -12,6 +12,8 @@ else
     alias history='fc -l 1'
 fi
 
+alias own='sudo chown -R "${USER}:${USER}" .'
+
 # git
 alias gclean='git remote prune origin'
 
