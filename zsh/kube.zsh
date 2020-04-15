@@ -116,5 +116,3 @@ function kimgver() {
 
     kubectl -o json get "deployment/${deploy}" | jq -r "${filter}"
 }
-
-kautocomplete
