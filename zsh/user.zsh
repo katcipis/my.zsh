@@ -24,4 +24,6 @@ export LESS="-R"
 export LC_CTYPE=$LANG
 export LC_ALL=en_US.UTF-8
 export EDITOR=vim
-export PATH=$LOCALDIR/bin:$LOCALDIR/go/bin:$HOME/go/bin:$PATH
+export NASHROOT=$HOME/nashroot
+export NASHPATH=$HOME/nash
+export PATH=$LOCALDIR/bin:$LOCALDIR/go/bin:$HOME/go/bin:$NASHROOT/bin:$NASHPATH:/bin:$PATH
