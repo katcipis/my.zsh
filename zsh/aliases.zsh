@@ -33,3 +33,6 @@ alias sx='ssh-agent startx'
 alias movies='cd /mnt/media/movies/todo && nautilus . && cd -'
 
 alias series='cd /mnt/media/series && nautilus . && cd -'
+
+# TODO: Add for merging PDFs
+# gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=finished.pdf file1.pdf file2.pdf
