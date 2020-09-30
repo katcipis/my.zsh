@@ -34,5 +34,10 @@ alias movies='cd /mnt/media/movies/todo && nautilus . && cd -'
 
 alias series='cd /mnt/media/series && nautilus . && cd -'
 
-# TODO: Add for merging PDFs
-# gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=finished.pdf file1.pdf file2.pdf
+function pdfmerge() {
+    gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=${1} ${@:2}
+}
+
+function pdfreduce() {
+    gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile=${1} ${2}
+}
