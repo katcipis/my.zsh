@@ -23,9 +23,6 @@ alias archupdate='sudo pacman -Sy archlinux-keyring && sudo pacman -Syyu'
 # Generate password
 alias genpassword="openssl rand -base64 32"
 
-# Stats
-alias io="iostat -xmdz 1"
-
 alias vi="vim"
 
 alias sx='ssh-agent startx'
