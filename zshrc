@@ -11,3 +11,5 @@ source $ZSH/gcloud.zsh
 source $ZSH/kube.zsh
 source $ZSH/user.zsh
 source $ZSH/private.zsh
+
+kautocomplete
