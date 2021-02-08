@@ -116,3 +116,18 @@ function kimgver() {
 
     kubectl -o json get "deployment/${deploy}" | jq -r "${filter}"
 }
+
+function krestart() {
+    local namespace="${1}"
+    local deploy="${2}"
+
+    if [[ -z "${namespace}" ]] then
+        printf "usage: %s <namespace> <deploy name>\n" ${0}
+        return
+    fi
+    if [[ -z "${deploy}" ]] then
+        printf "usage: %s <namespace> <deploy name>\n" ${0}
+        return
+    fi
+    kubectl --namespace "${namespace}" rollout restart deployment "${deploy}"
+}
