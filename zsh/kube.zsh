@@ -139,4 +139,5 @@ function kshell() {
         return
     fi
     kubectl run -i --tty katcipis-shell --image=ubuntu --restart=Never --namespace "${namespace}" -- bash
+    kubectl delete pod katcipis-shell --namespace "${namespace}"
 }
