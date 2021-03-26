@@ -92,7 +92,7 @@ function klogs() {
         container="${label_val}"
     fi
 
-    kubectl logs -f --selector "${select_label}=${label_val}" --container "${container}"
+    kubectl logs -f --max-log-requests 100 --selector "${select_label}=${label_val}" --container "${container}"
 }
 
 function kautocomplete() {
@@ -130,4 +130,13 @@ function krestart() {
         return
     fi
     kubectl --namespace "${namespace}" rollout restart deployment "${deploy}"
+}
+
+function kshell() {
+    local namespace="${1}"
+    if [[ -z "${namespace}" ]] then
+        printf "usage: %s <namespace>\n" ${0}
+        return
+    fi
+    kubectl run -i --tty katcipis-shell --image=ubuntu --restart=Never --namespace "${namespace}" -- bash
 }
