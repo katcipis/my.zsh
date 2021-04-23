@@ -141,3 +141,13 @@ function kshell() {
     kubectl run -i --tty katcipis-shell --image=ubuntu --restart=Never --namespace "${namespace}" -- bash
     kubectl delete pod katcipis-shell --namespace "${namespace}"
 }
+
+function ksetns() {
+    local namespace="${1}"
+    if [[ -z "${namespace}" ]] then
+        printf "usage: %s <namespace>\n" ${0}
+        return
+    fi
+    kubectl config set-context --current --namespace="${namespace}"
+    kubectl config view --minify | grep namespace:
+}
