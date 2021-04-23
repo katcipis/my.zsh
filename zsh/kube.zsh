@@ -149,5 +149,8 @@ function ksetns() {
         return
     fi
     kubectl config set-context --current --namespace="${namespace}"
+}
+
+functions kns() {
     kubectl config view --minify | grep namespace:
 }
