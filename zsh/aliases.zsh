@@ -15,7 +15,7 @@ fi
 alias own='sudo chown -R "${USER}:${USER}" .'
 
 # git
-alias gclean='git remote prune origin'
+alias gclean='git fetch --prune'
 
 # Update arch
 alias archupdate='sudo pacman -Sy archlinux-keyring && sudo pacman -Syyu'
