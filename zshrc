@@ -9,6 +9,7 @@ source $ZSH/aur.zsh
 source $ZSH/fzf.zsh
 source $ZSH/gcloud.zsh
 source $ZSH/kube.zsh
+source $ZSH/gpg.zsh
 source $ZSH/vault.zsh
 source $ZSH/user.zsh
 source $ZSH/private.zsh
