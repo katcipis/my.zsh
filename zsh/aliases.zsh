@@ -16,7 +16,6 @@ alias own='sudo chown -R "${USER}:${USER}" .'
 
 # git
 alias gclean='git fetch --prune'
-alias gitc='git commit -a -S'
 
 # Update arch
 alias archupdate='sudo pacman -Sy archlinux-keyring && sudo pacman -Syyu'
