@@ -38,3 +38,5 @@ function pdfmerge() {
 function pdfreduce() {
     gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile=${1} ${2}
 }
+
+alias lg="lazygit"
