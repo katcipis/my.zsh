@@ -27,3 +27,4 @@ export EDITOR=vim
 export NASHROOT=$HOME/nashroot
 export NASHPATH=$HOME/nash
 export PATH=$LOCALDIR/bin:$LOCALDIR/go/bin:$HOME/go/bin:$NASHROOT/bin:$NASHPATH:/bin:$PATH
+export SHELL=$NASHROOT/bin/nash
