@@ -39,4 +39,18 @@ function pdfreduce() {
     gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile=${1} ${2}
 }
 
+function tf() {
+    local imgversion="${1}"
+
+    if [[ -z "${imgversion}" ]] then
+        echo "version not informed"
+        printf "usage: %s <image version>\n" ${0}
+        return
+    fi
+    podman run --rm -ti \
+        -e SSH_AUTH_SOCK=/ssh-agent -v "${SSH_AUTH_SOCK}":/ssh-agent \
+        -v "${PWD}:/app" -w /app \
+        --entrypoint sh "hashicorp/terraform:${imgversion}"
+}
+
 alias lg="lazygit"
