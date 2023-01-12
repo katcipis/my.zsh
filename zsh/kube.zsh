@@ -135,11 +135,16 @@ function krestart() {
 function kshell() {
     local namespace="${1}"
     if [[ -z "${namespace}" ]] then
-        printf "usage: %s <namespace>\n" ${0}
+        printf "usage: %s <namespace> <image(optional)>\n" ${0}
         return
     fi
-    kubectl run -i --tty katcipis-shell --image=ubuntu --restart=Never --namespace "${namespace}" -- bash
-    kubectl delete pod katcipis-shell --namespace "${namespace}"
+
+    local image="${2}"
+    if [[ -z "${image}" ]] then
+        image="ubuntu"
+    fi
+
+    kubectl run -i --tty katcipis-shell --rm=true --restart=Never --namespace "${namespace}" --image="${image}" --command -- bash
 }
 
 function knset() {
