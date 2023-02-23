@@ -12,24 +12,12 @@ else
     alias history='fc -l 1'
 fi
 
-alias own='sudo chown -R "${USER}:${USER}" .'
-
-# git
-alias gclean='git fetch --prune'
-
 # Update arch
 alias archupdate='sudo pacman -Sy archlinux-keyring && sudo pacman -Syyu'
-
-# Generate password
-alias genpassword="openssl rand -base64 32"
 
 alias vi="vim"
 
 alias sx='ssh-agent startx'
-
-alias movies='cd /mnt/media/movies/todo && nautilus . && cd -'
-
-alias series='cd /mnt/media/series && nautilus . && cd -'
 
 function pdfmerge() {
     gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=${1} ${@:2}
@@ -40,3 +28,5 @@ function pdfreduce() {
 }
 
 alias lg="lazygit"
+
+alias nt="alacritty --working-directory $(pwd) &> /dev/null & disown"
