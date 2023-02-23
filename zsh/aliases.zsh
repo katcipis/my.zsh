@@ -29,4 +29,6 @@ function pdfreduce() {
 
 alias lg="lazygit"
 
-alias nt="alacritty --working-directory $(pwd) &> /dev/null & disown"
+function nt() {
+    alacritty --working-directory "$(pwd)" &> /dev/null & disown
+}
