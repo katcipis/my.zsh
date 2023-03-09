@@ -156,7 +156,24 @@ function knset() {
     kubectl config set-context --current --namespace="${namespace}"
 }
 
-functions kns() {
+function kns() {
     kubectl config view --minify | grep namespace:
 }
 
+function kpods() {
+    local filter="${1}"
+    if [[ -z "${filter}" ]] then
+        printf "usage: %s <pod status>\n" ${0}
+        return
+    fi
+    kubectl get pod  | grep "${filter}" | awk '{print $1}'
+}
+
+function kpodskill() {
+    local filter="${1}"
+    if [[ -z "${filter}" ]] then
+        printf "usage: %s <pod status that will be deleted>\n" ${0}
+        return
+    fi
+    kpods "${filter}" | xargs kubectl delete pod
+}
