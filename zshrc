@@ -13,5 +13,3 @@ source $ZSH/gpg.zsh
 source $ZSH/vault.zsh
 source $ZSH/user.zsh
 source $ZSH/private.zsh
-
-kautocomplete
