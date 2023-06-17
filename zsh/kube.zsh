@@ -18,6 +18,10 @@ function kundo() {
     kubectl rollout undo deployment/${deploy} --to-revision=${rev}
 }
 
+function kdrain() {
+    kubectl drain --delete-emptydir-data --ignore-daemonsets "$@"
+}
+
 function kupdate() {
     local name="${1}"
     local imgversion="${2}"
