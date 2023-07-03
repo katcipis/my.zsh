@@ -181,3 +181,32 @@ function kpodskill() {
     fi
     kpods "${filter}" | xargs kubectl delete pod
 }
+
+function kterminated() {
+    # Get all namespaces in the cluster
+    local namespaces
+    local pods
+
+    namespaces=$(kubectl get namespaces -o=jsonpath='{.items[*].metadata.name}')
+
+    # Loop through each namespace
+    for namespace in "${=namespaces}"; do
+        echo "Namespace: $namespace"
+        echo "------------------------"
+
+        # Get all pod names in the namespace
+        pods=$(kubectl get pods -n $namespace -o=jsonpath='{range .items[*]}{.metadata.name}{" "}{end}')
+
+        # Loop through each pod
+        for pod in "${=pods}"; do
+            # Get the termination reason for the pod
+            reasons=$(kubectl get pod -n $namespace $pod -o=jsonpath='{.status.containerStatuses[*].lastState.terminated.reason}')
+            if [[ -z "${reasons}" ]] then
+                continue
+            fi
+            for reason in "${=reasons}"; do
+                echo "Pod '$pod' terminated due to '$reason'"
+            done
+        done
+    done
+}
