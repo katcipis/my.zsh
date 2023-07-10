@@ -32,3 +32,15 @@ alias lg="lazygit"
 function nt() {
     alacritty --working-directory "$(pwd)" &> /dev/null & disown
 }
+
+function godbg() {
+    local pkg="${1}"
+    local testname="${2}"
+
+    if [[ -z "${pkg}" ]] then
+        echo "pkg name not informed"
+        printf "usage: %s <pkg name> <test name>\n" ${0}
+        return
+    fi
+    dlv test "${pkg}" -- -test.run="${testname}"
+}
