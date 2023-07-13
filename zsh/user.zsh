@@ -24,10 +24,8 @@ export LESS="-R"
 export LC_CTYPE=$LANG
 export LC_ALL=en_US.UTF-8
 export EDITOR=vim
-export NASHROOT=$HOME/nashroot
-export NASHPATH=$HOME/nash
 CARGOBIN="${HOME}/.cargo/bin"
-export PATH=$LOCALDIR/bin:$LOCALDIR/go/bin:$HOME/go/bin:$NASHROOT/bin:$NASHPATH:/bin:$PATH:$CARGOBIN
+export PATH=$LOCALDIR/bin:$LOCALDIR/go/bin:$HOME/go/bin:$CARGOBIN:$LOCALDIR/google-cloud-sdk/bin:$PATH
 
 # From: https://cloud.google.com/blog/products/containers-kubernetes/kubectl-auth-changes-in-gke
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True
