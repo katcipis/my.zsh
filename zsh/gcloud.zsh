@@ -62,3 +62,75 @@ function gke_config() {
 
     gcloud container clusters get-credentials ${cluster} --zone ${zone} --project ${project}
 }
+
+function gsecrets_list() {
+    local project="${1}"
+    local name="${2}"
+
+    if [[ -z "${project}" ]] then
+        echo "project name not informed"
+        printf "usage: %s <project name> <secret name>\n" ${0}
+        return
+    fi
+
+    if [[ -z "${name}" ]] then
+        echo "secret name not informed"
+        printf "usage: %s <project name> <secret name>\n" ${0}
+        return
+    fi
+
+    gcloud secrets versions list ${name} --project ${project}
+}
+
+function gsecret_last() {
+    local project="${1}"
+    local name="${2}"
+
+    if [[ -z "${project}" ]] then
+        echo "project name not informed"
+        printf "usage: %s <project name> <secret name>\n" ${0}
+        return
+    fi
+
+    if [[ -z "${name}" ]] then
+        echo "secret name not informed"
+        printf "usage: %s <project name> <secret name>\n" ${0}
+        return
+    fi
+
+    local last_version
+    last_version=$(gcloud secrets versions list ${name} --format='value(name)' --project "${project}" --limit=1)
+
+    if [[ -z "${last_version}" ]]; then
+        echo "No versions found for secret ${name} in project ${project}"
+        return
+    fi
+
+    gcloud secrets versions access "${last_version}" --project "${project}" --secret "${name}"
+}
+
+function gsecret_add() {
+    local project="${1}"
+    local name="${2}"
+    local file="${3}"
+
+    if [[ -z "${project}" ]]; then
+        echo "project name not informed"
+        printf "usage: %s <project name> <secret name> <file name>\n" ${0}
+        return
+    fi
+
+    if [[ -z "${name}" ]]; then
+        echo "secret name not informed"
+        printf "usage: %s <project name> <secret name> <file name>\n" ${0}
+        return
+    fi
+
+    if [[ -z "${file}" ]]; then
+        echo "file name not informed"
+        printf "usage: %s <project name> <secret name> <file name>\n" ${0}
+        return
+    fi
+
+    gcloud secrets versions add "${name}" --data-file="${file}" --project "${project}"
+}
