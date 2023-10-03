@@ -44,3 +44,8 @@ function godbg() {
     fi
     dlv test "${pkg}" -- -test.run="${testname}"
 }
+
+function excalidraw() {
+    echo "open http://localhost:5000"
+    docker run --rm -it --name excalidraw -p 5000:80 docker.io/excalidraw/excalidraw:latest
+}
