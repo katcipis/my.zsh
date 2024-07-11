@@ -49,3 +49,16 @@ function excalidraw() {
     echo "open http://localhost:5000"
     docker run --rm -it --name excalidraw -p 5000:80 docker.io/excalidraw/excalidraw:latest
 }
+
+function pyenv() {
+    local name="${1}"
+    local basepath="${HOME}/pyenvs"
+
+    if [[ -z "${name}" ]] then
+        name=$(pwd)
+    fi
+
+    envpath="${basepath}/${name}"
+    python -m venv "${envpath}"
+    source "${envpath}/bin/activate"
+}
