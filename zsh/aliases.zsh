@@ -62,3 +62,10 @@ function pyenv() {
     python -m venv "${envpath}"
     source "${envpath}/bin/activate"
 }
+
+function retrier() {
+    until $@
+    do
+      echo "Try again make image"
+    done
+}
