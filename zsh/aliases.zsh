@@ -14,6 +14,7 @@ fi
 
 # Update arch
 alias archupdate='sudo pacman -Sy archlinux-keyring && sudo pacman -Syyu'
+alias archpkgs='pacman -Slq | fzf'
 
 alias vi="nvim"
 
