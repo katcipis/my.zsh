@@ -23,7 +23,7 @@ export LESS="-R"
 
 export LC_CTYPE=$LANG
 export LC_ALL=en_US.UTF-8
-export EDITOR=nvim
+export EDITOR=vim
 CARGOBIN="${HOME}/.cargo/bin"
 export PATH=$LOCALDIR/bin:$LOCALDIR/go/bin:$HOME/go/bin:$CARGOBIN:$LOCALDIR/google-cloud-sdk/bin:$PATH
 

@@ -16,7 +16,7 @@ fi
 alias archupdate='sudo pacman -Sy archlinux-keyring && sudo pacman -Syyu'
 alias archpkgs='pacman -Slq | fzf'
 
-alias vi="nvim"
+alias vi="vim"
 
 alias sx='ssh-agent startx'
 
