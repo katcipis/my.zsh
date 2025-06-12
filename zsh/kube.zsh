@@ -78,25 +78,13 @@ function kevents() {
 }
 
 function klogs() {
-    local select_label="${1}"
-    local label_val="${2}"
-    local container="${3}"
+    local deployment="${1}"
 
-    if [[ -z "${select_label}" ]] then
-        printf "usage: %s <selector label> <label value> <container name>(optional,default=<label value>)\n" ${0}
-        return
+    if [[ -z "${deployment}" ]] then
+        deployment="${deployment}"
     fi
 
-    if [[ -z "${label_val}" ]] then
-        printf "usage: %s <selector label> <label value> <container name>(optional,default=<label value>)\n" ${0}
-        return
-    fi
-
-    if [[ -z "${container}" ]] then
-        container="${label_val}"
-    fi
-
-    kubectl logs -f --max-log-requests 100 --selector "${select_label}=${label_val}" --container "${container}"
+    kubectl logs -f deployment/${deployment} --all-pods=true
 }
 
 function kautocomplete() {
@@ -122,18 +110,12 @@ function kimgver() {
 }
 
 function krestart() {
-    local namespace="${1}"
-    local deploy="${2}"
-
-    if [[ -z "${namespace}" ]] then
-        printf "usage: %s <namespace> <deploy name>\n" ${0}
-        return
-    fi
+    local deploy="${1}"
     if [[ -z "${deploy}" ]] then
-        printf "usage: %s <namespace> <deploy name>\n" ${0}
+        printf "usage: %s <deploy name>\n" ${0}
         return
     fi
-    kubectl --namespace "${namespace}" rollout restart deployment "${deploy}"
+    kubectl rollout restart deployment "${deploy}"
 }
 
 function kshell() {
