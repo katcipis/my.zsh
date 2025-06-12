@@ -81,10 +81,11 @@ function klogs() {
     local deployment="${1}"
 
     if [[ -z "${deployment}" ]] then
-        deployment="${deployment}"
+        printf "usage: %s <deploy name>\n" ${0}
+        return
     fi
 
-    kubectl logs -f deployment/${deployment} --all-pods=true
+    kubectl logs -f deployment/${deployment} --all-pods=true --max-log-requests 100
 }
 
 function kautocomplete() {
