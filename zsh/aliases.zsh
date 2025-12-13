@@ -17,6 +17,7 @@ alias archupdate='sudo pacman -Sy archlinux-keyring && sudo pacman -Syyu'
 alias archpkgs='pacman -Slq | fzf'
 
 alias vi="vim"
+alias docker="podman"
 
 alias sx='ssh-agent startx'
 
