@@ -67,6 +67,6 @@ function pyenv() {
 function retrier() {
     until $@
     do
-      echo "Try again make image"
+      echo "Trying again"
     done
 }
