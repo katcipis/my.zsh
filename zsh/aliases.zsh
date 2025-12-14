@@ -12,14 +12,6 @@ else
     alias history='fc -l 1'
 fi
 
-# Update arch
-alias archupdate='sudo pacman -Sy archlinux-keyring && sudo pacman -Syyu'
-alias archpkgs='pacman -Slq | fzf'
-
-alias vi="vim"
-
-alias sx='ssh-agent startx'
-
 function pdfmerge() {
     gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=${1} ${@:2}
 }
@@ -28,10 +20,8 @@ function pdfreduce() {
     gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile=${1} ${2}
 }
 
-alias lg="lazygit"
-
 function nt() {
-    alacritty --working-directory "$(pwd)" &> /dev/null & disown
+    (cd "$(pwd)" && st & disown)
 }
 
 function godbg() {
@@ -70,3 +60,7 @@ function retrier() {
       echo "Trying again"
     done
 }
+
+alias nixupdate='sudo nixos-rebuild switch --upgrade'
+alias vi="vim"
+alias lg="lazygit"
