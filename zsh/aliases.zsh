@@ -61,6 +61,12 @@ function retrier() {
     done
 }
 
+function nixgc() {
+    sudo nix-collect-garbage
+    sudo nix-collect-garbage -d
+    sudo nixos-rebuild switch
+}
+
 alias nixupdate='sudo nixos-rebuild switch --upgrade'
 alias vi="vim"
 alias lg="lazygit"
